@@ -19,4 +19,4 @@
 - Адаптивный дизайн для мобильных и планшетных устройств  
 
 ## Ссылка на сайт
-[Перейти на сайт]([https://your-netlify-link.netlify.app](https://relaxed-melba-eaa17a.netlify.app/))
+[Перейти на сайт](https://relaxed-melba-eaa17a.netlify.app/)
