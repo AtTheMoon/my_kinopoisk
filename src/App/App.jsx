@@ -12,30 +12,32 @@ const App = () => {
   const [loading, setLoading] = useState(true)
   const filmsPerPage = 20
 
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const requests = filmNums.map(num =>
-          fetch(`https://kinopoiskapiunofficial.tech/api/v2.2/films/top?page=${num}`, {
-            method: 'GET',
-            headers: {
-              'X-API-KEY': key,
-              'Content-Type': 'application/json',
-            },
-          }).then(res => res.json())
-        )
-        const results = await Promise.all(requests)
-        const allFilms = results.flatMap(f => f.films)
-        setFilms(allFilms)
-        setFilteredFilms(allFilms)
-      } catch (err) {
-        console.error('Ошибка загрузки фильмов:', err)
-      } finally {
-        setLoading(false)
-      }
+useEffect(() => {
+  async function fetchData() {
+    try {
+      const requests = filmNums.map(num =>
+        fetch(`https://kinopoiskapiunofficial.tech/api/v2.2/films/top?page=${num}`, {
+          method: 'GET',
+          headers: {
+            'X-API-KEY': key,
+            'Content-Type': 'application/json',
+          },
+        }).then(res => res.json())
+      );
+      const results = await Promise.all(requests);
+      const allFilms = results.flatMap(f => f?.films || []);
+      setFilms(allFilms);
+      setFilteredFilms(allFilms);
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setLoading(false);
     }
-    if (key) fetchData()
-  }, [])
+  }
+
+  if (key) fetchData();
+}, []);
+
 
   function handlePerPage(num) {
     window.scrollTo(0, 0)
