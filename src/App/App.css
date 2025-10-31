@@ -1,0 +1,135 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-color: rgb(33, 8, 57);
+    color: white;
+    overflow-x: hidden;
+    display: block;
+}
+
+input{
+    outline: none;
+    font-size: 24px;
+    padding: 5px 10px;
+    margin: 20px 0;
+}
+
+.home {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.home__title{
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.home__container{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.pagi{
+    display: flex;
+    align-self: center;
+    gap: 10px;
+    margin: 20px 0 0;
+}
+
+.pagi__item{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: yellow;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.pagi__item:hover{
+    background-color: gold;
+}
+
+.pagi__item.active{
+    background-color: orange;
+}
+
+@media (max-width: 1024px) {
+    .home {
+        width: 100%;
+    }
+
+    .film, .skeleton {
+        flex: 1 1 45%;
+        max-width: 45%;
+    }
+}
+
+@media (max-width: 768px) {
+    .home {
+        width: 95%;
+        padding: 10px;
+    }
+
+    input {
+        width: 100%;
+        font-size: 20px;
+        margin: 15px 0;
+    }
+
+    .home__container {
+        gap: 15px;
+    }
+
+    .pagi {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .pagi__item {
+        width: 28px;
+        height: 28px;
+        font-size: 14px;
+    }
+
+    .home__title {
+        font-size: 24px;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .pagi__item {
+        width: 24px;
+        height: 24px;
+        font-size: 12px;
+    }
+
+    input {
+        font-size: 18px;
+        padding: 4px 8px;
+    }
+}
