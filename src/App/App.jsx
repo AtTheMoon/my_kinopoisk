@@ -34,7 +34,7 @@ const App = () => {
         setLoading(false)
       }
     }
-    fetchData()
+    if (key) fetchData()
   }, [])
 
   function handlePerPage(num) {
@@ -71,9 +71,7 @@ const App = () => {
         ) : (
         <>
             <div className="home__container">
-            {currentFilms.map(film =>
-                <Film key={film.filmId} film={film} />
-            )}
+            {currentFilms.map(film => film ? <Film key={film.filmId} film={film} /> : null)}
             </div>
             <div className="pagi">
             {Array.from({ length: totalPage }, (_, i) => {
