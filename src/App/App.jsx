@@ -24,6 +24,7 @@ useEffect(() => {
           },
         }).then(res => res.json())
       );
+
       const results = await Promise.all(requests);
       const allFilms = results.flatMap(f => f?.films || []);
       setFilms(allFilms);
@@ -36,7 +37,9 @@ useEffect(() => {
   }
 
   if (key) fetchData();
+
 }, []);
+
 
 
   function handlePerPage(num) {
